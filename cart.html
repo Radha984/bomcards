@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 25%;
+            height: 30vh;
+        }
+        #parent1{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parent1"></div>
+
+   <script>
+    let getdata=JSON.parse(localStorage.getItem("details"))
+    console.log(getdata)
+    let parent=document.getElementById("parent1")
+    let newgetdata=getdata.map((val)=>{
+        console.log(val)
+
+
+        let child=document.createElement("div")
+            let childa=document.createElement("div")
+            let childb=document.createElement("div")
+            let childc=document.createElement("div")
+            let childd=document.createElement("div")
+            let img=document.createElement("img")
+            img.style.margin="20px";
+            img.style.padding="20px";
+
+            img.src=val.image
+
+            childa.innerHTML=val.id
+            childb.innerHTML=val.title
+            childc.innerHTML=val.price
+            childd.innerHTML=val.category
+            child.append(childa,childb,childc,childd,img)
+            child.style.fontSize="20px";
+            child.style.padding="20px";
+
+
+            parent1.append(child)
+          })
+    
+
+   </script> 
+</body>
+</html>
